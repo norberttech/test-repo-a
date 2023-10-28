@@ -35,5 +35,5 @@ jobs:
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number }}
-          body: ${{ GITHUB_STEP_SUMMARY }}
+          body: ${{ env.GITHUB_STEP_SUMMARY }}
           edit-mode: replace
