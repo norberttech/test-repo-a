@@ -1,7 +1,6 @@
 name: Comment test workflow
 
 on:
-  pull_request:
   pull_request_target:
     types: ["opened", "edited", "reopened", "ready_for_review", "synchronize"]
 
@@ -29,6 +28,9 @@ jobs:
           issue-number: ${{ github.event.pull_request.number }}
           comment-author: 'github-actions[bot]'
           body-includes: '# Automated Comment'
+
+      - name: Echo summary
+        run: echo ${{ env.GITHUB_STEP_SUMMARY }}
 
       - name: Create or update comment
         uses: peter-evans/create-or-update-comment@v3
