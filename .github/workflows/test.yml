@@ -16,14 +16,14 @@ jobs:
 
       - name: Adding Comment to GITHUB_STEP_SUMMARY
         id: init_comment
-          run: |
-            {
-              echo 'COMMENT_CONTENT<<EOF'
-              echo '# Automated Comment'
-              echo '---'
-              time
-              echo EOF
-            } >> "$GITHUB_ENV"
+        run: |
+          {
+            echo 'COMMENT_CONTENT<<EOF'
+            echo '# Automated Comment'
+            echo '---'
+            time
+            echo EOF
+          } >> "$GITHUB_ENV"
 
       - name: Find Comment
         uses: peter-evans/find-comment@v2
