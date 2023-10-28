@@ -21,7 +21,7 @@ jobs:
             echo 'COMMENT_CONTENT<<EOF'
             echo '# Automated Comment'
             echo '---'
-            $(date +'%Y-%m-%dT%H:%M:%S')
+            echo 'This is a test comment.'
             echo EOF
           } >> "$GITHUB_ENV"
 
