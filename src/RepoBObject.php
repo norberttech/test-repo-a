@@ -6,5 +6,7 @@ namespace Norberttech\TestRepoB;
 
 final class RepoBObject
 {
-
+    public function __construct()
+    {
+    }
 }
