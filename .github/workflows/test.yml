@@ -34,7 +34,7 @@ jobs:
           body-includes: '# Automated Comment'
 
       - name: Echo summary
-        run: echo {{ env.COMMENT_CONTENT }}"
+        run: echo {{ env.COMMENT_CONTENT }}
 
       - name: Create or update comment
         uses: peter-evans/create-or-update-comment@v3
