@@ -41,8 +41,8 @@ jobs:
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number }}
-          body: ${{ env.COMMENT_CONTENT }}"
+          body: ${{ env.COMMENT_CONTENT }}
           edit-mode: replace
 
       - name: Set summary
-        run: echo ${{ env.COMMENT_CONTENT }}" >> $GITHUB_STEP_SUMMARY
+        run: echo ${{ env.COMMENT_CONTENT }} >> $GITHUB_STEP_SUMMARY
