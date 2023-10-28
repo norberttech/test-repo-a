@@ -1,7 +1,6 @@
 name: Comment test workflow
 
 on:
-  push:
   pull_request:
   pull_request_target:
     types: ["opened", "edited", "reopened", "ready_for_review", "synchronize"]
@@ -36,5 +35,5 @@ jobs:
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number }}
-          body: {{ $GITHUB_STEP_SUMMARY }}
+          body: ${{ GITHUB_STEP_SUMMARY }}
           edit-mode: replace
