@@ -15,11 +15,15 @@ jobs:
         uses: "actions/checkout@v4"
 
       - name: Adding Comment to GITHUB_STEP_SUMMARY
-        run: |
-          echo '# Automated Comment' >> $GITHUB_STEP_SUMMARY
-          echo ' ' >> $GITHUB_STEP_SUMMARY
-          echo '---' >> $GITHUB_STEP_SUMMARY
-          time >> $GITHUB_STEP_SUMMARY
+        id: init_comment
+          run: |
+            {
+              echo 'COMMENT_CONTENT<<EOF'
+              echo '# Automated Comment'
+              echo '---'
+              time
+              echo EOF
+            } >> "$GITHUB_ENV"
 
       - name: Find Comment
         uses: peter-evans/find-comment@v2
@@ -30,12 +34,15 @@ jobs:
           body-includes: '# Automated Comment'
 
       - name: Echo summary
-        run: echo ${{ env.GITHUB_STEP_SUMMARY }}
+        run: echo {{ env.COMMENT_CONTENT }}"
 
       - name: Create or update comment
         uses: peter-evans/create-or-update-comment@v3
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number }}
-          body: ${{ env.GITHUB_STEP_SUMMARY }}
+          body: ${{ env.COMMENT_CONTENT }}"
           edit-mode: replace
+
+      - name: Set summary
+        run: echo ${{ env.COMMENT_CONTENT }}" >> $GITHUB_STEP_SUMMARY
