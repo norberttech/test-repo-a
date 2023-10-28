@@ -46,4 +46,4 @@ jobs:
 
       - name: Set summary
         run: |
-          ${{ env.COMMENT_CONTENT }} >> $GITHUB_STEP_SUMMARY
+          echo "GITHUB_STEP_SUMMARY=${{ env.COMMENT_CONTENT }}" >> $GITHUB_ENV
