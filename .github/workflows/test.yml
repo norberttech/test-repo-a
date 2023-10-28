@@ -21,7 +21,7 @@ jobs:
             echo 'COMMENT_CONTENT<<EOF'
             echo '# Automated Comment'
             echo '---'
-            time
+            $(date +'%Y-%m-%dT%H:%M:%S')
             echo EOF
           } >> "$GITHUB_ENV"
 
@@ -45,4 +45,5 @@ jobs:
           edit-mode: replace
 
       - name: Set summary
-        run: echo ${{ env.COMMENT_CONTENT }} >> $GITHUB_STEP_SUMMARY
+        run: |
+          ${{ env.COMMENT_CONTENT }} >> $GITHUB_STEP_SUMMARY
