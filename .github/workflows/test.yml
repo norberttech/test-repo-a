@@ -21,7 +21,8 @@ jobs:
             echo 'COMMENT_CONTENT<<EOF'
             echo '# Automated Comment'
             echo '---'
-            echo 'This is a test comment.'
+            echo "PR Number: ${{ github.event.pull_request.number }}"
+            echo "  "
             echo EOF
           } >> "$GITHUB_ENV"
 
