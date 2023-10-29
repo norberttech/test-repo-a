@@ -22,6 +22,7 @@ jobs:
             echo '# Automated Comment'
             echo '---'
             echo "PR Number: ${{ github.event.pull_request.number }}"
+            echo "Time: $(date)"
             echo "  "
             echo EOF
           } >> "$GITHUB_ENV"
@@ -47,4 +48,4 @@ jobs:
 
       - name: Set summary
         run: |
-          echo "GITHUB_STEP_SUMMARY=$(echo '${{ env.COMMENT_CONTENT }}' | base64 --decode" >> $GITHUB_ENV
+          echo ${{ env.COMMENT_CONTENT }} >> $GITHUB_STEP_SUMMARY
