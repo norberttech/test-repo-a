@@ -23,9 +23,9 @@ jobs:
             echo '---'
             echo "PR Number: ${{ github.event.pull_request.number }}"
             echo "Time: $(date)"
-            echo "```shell"
+            echo '```shell'
             composer action
-            echo "```"
+            echo '```'
             echo "  "
             echo EOF
           } >> "$GITHUB_ENV"
@@ -39,7 +39,7 @@ jobs:
           body-includes: '# Automated Comment'
 
       - name: Echo summary
-        run: echo {{ env.COMMENT_CONTENT }}
+        run: echo "${{ env.COMMENT_CONTENT }}"
 
       - name: Create or update comment
         uses: peter-evans/create-or-update-comment@v3
