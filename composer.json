@@ -11,5 +11,8 @@
             "email": "norbert@orzechowicz.pl"
         }
     ],
-    "require": {}
+    "require": {},
+    "scripts": {
+        "action": "php index.php"
+    }
 }

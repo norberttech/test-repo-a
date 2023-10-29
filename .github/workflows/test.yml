@@ -23,6 +23,7 @@ jobs:
             echo '---'
             echo "PR Number: ${{ github.event.pull_request.number }}"
             echo "Time: $(date)"
+            composer action
             echo "  "
             echo EOF
           } >> "$GITHUB_ENV"
